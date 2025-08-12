@@ -116,64 +116,50 @@ const resultty = calculateBirthYear(person);
 console.log(resultty);
 
 //11-masala
-
-const userrr = Object.freeze({ name: "Ulug'bek", age: 20 });
-
-function updateUser(userrr) {
-  if (Object.isFrozen(userrr)) {
+const updateUser = function (user7) {
+  if (Object.isFrozen(user7)) {
     console.log("Object is frozen");
-  } else {
-    user.age += 1;
-    console.log("User updated:", userrr);
   }
-}
+};
 
-updateUser(userrr);
+const user7 = Object.freeze({ name: "Ulug'bek", age: 25 });
+updateUser(user7);
 
 //12-masala
+const checkFrozenStatus = function (obj) {
+  return Object.isFrozen(obj);
+};
 
-const caro = Object.freeze({ model: "Malibu" });
+const car9 = Object.freeze({ model: "cls 63" });
+console.log(checkFrozenStatus(car9));
 
-function checkFrozenStatus(obj) {
-  return Object.isFrozen(obj) ? "Frozen" : "Not frozen";
-}
-
-const resulti = checkFrozenStatus(caro);
-console.log(resulti);
-
-//13-masala
-
-const personn = { name: "Ali" };
-Object.seal(personn); // obyektni yopamiz
-
-function addProperty(obj, key, value) {
+// 13-masala
+const addProperty = function (obj, key, value) {
   if (Object.isSealed(obj)) {
-    console.log("Cannot add new property");
+    return "Cannot add new property";
+  }
+};
+
+const person88 = { name: "Ali" };
+Object.seal(person88);
+console.log(addProperty(person88, "age", 25));
+
+//14-masala
+function isItSealed(obj) {
+  if (Object.isSealed(obj)) {
+    return "Sealed";
   } else {
-    obj[key] = value;
-    console.log("Property added:", obj);
+    return "Not sealed";
   }
 }
-
-addProperty(person, "age", 25);
-//14-masala
-
 const phone = Object.seal({ brand: "iPhone" });
-
-function isItSealed(obj) {
-  return Object.isSealed(obj) ? "Sealed" : "Not sealed";
-}
-
-const resultu = isItSealed(phone);
-console.log(resultu);
+console.log(isItSealed(phone));
 
 //15-masala
+const checkProperty = function (obj, key) {
+  return key in obj;
+};
 
 const book = { title: "JS Fundamentals", author: "Mirzo" };
-
-function checkProperty(obj, key) {
-  return key in obj;
-}
-
 console.log(checkProperty(book, "author"));
 console.log(checkProperty(book, "price"));
