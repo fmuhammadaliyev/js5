@@ -81,7 +81,7 @@ console.log(resullt);
 const cube = { side: 4 };
 
 function calculateVolume(cube) {
-  cube.volume = cube.side ** 3; // yoki Math.pow(cube.side, 3)
+  cube.volume = cube.side ** 3;
   return cube;
 }
 
